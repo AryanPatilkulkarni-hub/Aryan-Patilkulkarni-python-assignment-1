@@ -4,27 +4,33 @@ Concepts: Input/Output, data validation, arithmetic, if–elif–else.
 
 """
 
-try :
-  name = input("Please enter the students name ")
-  mark1 = int(input("Please enter the marks of subject 1 "))
-  mark2 = int(input("Please enter the marks of subject 2 "))
-  mark3 = int(input("Please enter the marks of subject 3 "))
-  if 0<= mark1 <= 100 and 0<= mark2 <= 100 and 0<= mark3 <= 100 :
-    total = mark1 + mark2 + mark3
-    print(f"Total marks : {total}")
-    Average = total/3
-    print(f"Average marks : {Average:.2f}")
-    if Average >= 90 :
-      print("Grade : A")
-    elif Average >= 80 :
-      print("Grade : B")
-    elif Average >= 70 :
-      print("Grade : C")
-    elif Avergae >= 60 :
-      print("Grade : D")
-    else :
-      print("Grade : F")
-  else :
-    print("Please enter marks between 0 and 100")
-except :
-  print("Please enter the information in the correct data type")
+try:
+    name = input("Please enter the student's name: ")
+    mark1 = int(input("Please enter the marks of subject one: "))
+    mark2 = int(input("Please enter the marks of subject two: "))
+    mark3 = int(input("Please enter the marks of subject three: "))
+
+    # Validate mark range
+    if 0 <= mark1 <= 100 and 0 <= mark2 <= 100 and 0 <= mark3 <= 100:
+        total = mark1 + mark2 + mark3
+        print(f"Total marks : {total}")
+
+        average = total / 3
+        print(f"Average marks : {average:.2f}")
+
+        # Grade checking
+        if average >= 90:
+            print("Grade : A")
+        elif average >= 80:
+            print("Grade : B")
+        elif average >= 70:
+            print("Grade : C")
+        elif average >= 60:
+            print("Grade : D")
+        else:
+            print("Grade : F")
+    else:
+        print("Please enter marks between 0 and 100")
+
+except ValueError:
+    print("Please enter the information in the correct data type")
