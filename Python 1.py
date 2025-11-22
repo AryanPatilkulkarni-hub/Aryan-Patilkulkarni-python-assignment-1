@@ -6,7 +6,10 @@ distance = int(input("How far do you want to travel (in miles)? "))
 
 if distance < 3:
     print("You should ride a Bicycle.")
+    print("Have a safe journey!!")
 elif distance>=3 and distance < 300:
     print("You should ride a Motor-Cycle.")
+    print("Have a safe journey!!")
 else:
     print("You should drive a Super-Car.")
+    print("Have a safe journey!!")
