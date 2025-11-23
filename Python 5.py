@@ -8,55 +8,53 @@ Concepts: Loops, recursion, functions, input validation.
 
 """
 
+# math_utils.py
+
 def factorial(n):
+    """Return the factorial of n with input validation."""
     try:
         n = int(n)
-    except:
-        print("Please enter the correct data type")
-        return
+    except ValueError:
+        raise ValueError("Factorial: Input must be an integer.")
+
     if n < 0:
-        print("Please enter a positive integer")
-        return
-    if n == 0 or n == 1:
-        print("Factorial is 1")
-        return
+        raise ValueError("Factorial: Input must be non-negative.")
+
     fact = 1
-    for i in range(2,n+1):
-        fact = fact*i
-    print(f"Factorial is : {fact}")
-    return
+    for i in range(2, n + 1):
+        fact *= i
+    return fact
 
 
 def is_prime(n):
+    """Return True if n is prime, False otherwise."""
     try:
         n = int(n)
-    except:
-        print("Please enter the correct data type")
-        return
-    if n < 0:
-        print("Please enter a positive integer")
-        return
-    if n >= 0 and n < 2:
-        print("Number is not prime")
-        return
-    for i in range(2,n):
+    except ValueError:
+        raise ValueError("Prime check: Input must be an integer.")
+
+    if n < 2:
+        return False
+
+    from math import sqrt
+    for i in range(2, int(sqrt(n)) + 1):
         if n % i == 0:
-            print("Number is not prime")
-            return
-    print("Number is prime")
-    return
+            return False
+    return True
+
 
 def gcd(a, b):
+    """Return the greatest common divisor of a and b."""
     try:
         a = int(a)
         b = int(b)
-    except:
-        print("Please enter the correct data type")
-        return
+    except ValueError:
+        raise ValueError("GCD: Inputs must be integers.")
+
     if a < 0 or b < 0:
-        print("Please enter positive integers")
-        return
+        raise ValueError("GCD: Inputs must be non-negative.")
+
     while b != 0:
         a, b = b, a % b
-    print(f"GCD is : {a}")
-    return
+    return a
+
